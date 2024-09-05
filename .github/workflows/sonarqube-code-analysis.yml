@@ -12,15 +12,23 @@ jobs:
     steps:
       - name: Chekout code
         uses: actions/checkout@v2
-      
+        with:
+          path: .
+    
+      - name: Print working directory
+        run: pwd
+
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
-          python-version: ${{ matrix.python }}
+          python-version: '3.11.2'
+
       - name: Install tox and any other packages
         run: pip install tox
+
       - name: Run tox
-        run: tox -e py
+        run: tox -e py311
+
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
