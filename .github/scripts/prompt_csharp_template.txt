@@ -1,0 +1,19 @@
+Please review the following C# code changes that have been pushed to the GitHub branch. Focus on identifying potential issues related to code quality, performance, security, and adherence to best practices. Provide suggestions for improvement where necessary, and highlight any areas that might benefit from refactoring. Additionally, please check for any potential bugs or logical errors in the code.
+
+Code Changes:
+{code_content}
+
+Context:
+- **Purpose of the Code**: This code is part of a simple calculator application developed using Blazor WebAssembly. The main goal of this code is to implement the basic arithmetic operations (addition, subtraction, multiplication, division) and ensure the UI correctly reflects the results.
+
+- **Specific Requirements**: The application must perform calculations with precision up to two decimal places and handle edge cases such as division by zero gracefully, displaying appropriate error messages to the user.
+
+- **Performance Considerations**: The code needs to be optimized for performance since the application will be running in a WebAssembly environment. This includes minimizing unnecessary state updates and ensuring that the UI remains responsive during calculations.
+
+- **User Interface Considerations**: The UI should be simple and user-friendly, with clear buttons and input fields. Any suggestions for improving the user experience, especially in terms of input handling and result display, would be appreciated.
+
+- **Security Considerations**: While this is a basic calculator, it's important to ensure that the code is secure, particularly in handling user inputs. Please review the input validation logic to prevent any potential vulnerabilities.
+
+- **Scalability**: Though currently a simple calculator, the code should be modular and scalable to allow for future expansion of features, such as adding more complex mathematical operations or integrating with other parts of the application.
+
+Please include an overview of the code's strengths and weaknesses, as well as actionable recommendations for the team.
