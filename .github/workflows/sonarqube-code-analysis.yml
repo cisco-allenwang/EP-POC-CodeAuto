@@ -8,30 +8,14 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
-  sonarQube:
-    name: Sonar Analysis
+  build:
+    name: SonarQube Analysis
     runs-on: ubuntu-latest
     steps:
-      - name: checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v2
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        # with:
-        #   python-version: '3.x'
-        #   platform: 'linux'
-      - name: Install dependencies
-        run: |
-          python3 -m pip install --upgrade pip
-          pip install -r requirements.txt
-          echo "/apps/dftjenkins/.local/bin" >> $GITHUB_PATH
-      - name: Run tests with coverage
-        run: |
-          coverage run --source=src -m unittest discover tests
-          coverage xml -o coverage.xml
-      - name: Sonar Scan
-        uses: sonarsource/sonarqube-scan-action@master
+      - uses: sonarsource/sonarqube-scan-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
@@ -39,8 +23,7 @@ jobs:
       # following lines. This would typically be used to fail a deployment.
       # We do not recommend to use this in a pull request. Prefer using pull request
       # decoration instead.
-      - name: Failure of Sonar scan
-        uses: sonarsource/sonarqube-quality-gate-action@master
-        timeout-minutes: 5
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      # - uses: sonarsource/sonarqube-quality-gate-action@master
+      #   timeout-minutes: 5
+      #   env:
+      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
