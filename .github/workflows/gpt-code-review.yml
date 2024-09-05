@@ -1,0 +1,58 @@
+name: BridgeIT Code Review
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # Fetch all history for all branches and tags
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install openai==0.28
+          pip install --upgrade PyGithub
+
+      - name: Debug Commit Range
+        run: |
+          echo "Before commit: ${{ github.event.before }}"
+          echo "After commit: ${{ github.sha }}"
+          echo "Branch: ${{ github.ref }}"
+          git log --oneline -n 10
+
+      - name: Fetch All Branches
+        run: |
+          git fetch --all
+          git log --oneline -n 20  # Log more commits to ensure the commits exist
+
+      - name: Run Code Review
+        env:      
+          BRIDGEIT_URL: ${{ secrets.BRIDGEIT_URL }}
+          BRIDGEIT_API_ACCESS_TOKEN: ${{ secrets.BRIDGEIT_API_ACCESS_TOKEN }}
+          BRIDGEIT_APP_KEY: ${{ secrets.BRIDGEIT_APP_KEY }}
+          G_AUTO_TOKEN: ${{ secrets.G_AUTO_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.number }}
+        run: |
+          COMMIT_RANGE="${{ github.event.before }}...${{ github.sha }}"
+          echo "Commit range: $COMMIT_RANGE"
+          git diff --name-only $COMMIT_RANGE || echo "Commit range invalid"
+          for file in $(git diff --name-only $COMMIT_RANGE); do
+            if [[ $file == *.cs || $file == *.razor ]]; then
+              echo "Reviewing file: $file"
+              python .github/scripts/bridgeit_code_review.py $file
+            fi
+          done
