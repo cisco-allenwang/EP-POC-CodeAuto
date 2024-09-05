@@ -23,11 +23,15 @@ jobs:
         with:
           python-version: '3.11.2'
 
-      - name: Install tox and any other packages
-        run: pip install tox
-
-      - name: Run tox
-        run: tox -e py311
+      - name: Install dependencies
+        run: |
+            python3 -m pip install --upgrade pip
+            pip3 install -r requirements.txt
+            echo "/apps/dftjenkins/.local/bin" >> $GITHUB_PATH
+      - name: Run tests with coverage
+        run: |
+            coverage run --source=src -m unittest discover tests
+            coverage xml -o coverage.xml
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
