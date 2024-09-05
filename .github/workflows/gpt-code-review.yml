@@ -51,7 +51,7 @@ jobs:
           echo "Commit range: $COMMIT_RANGE"
           git diff --name-only $COMMIT_RANGE || echo "Commit range invalid"
           for file in $(git diff --name-only $COMMIT_RANGE); do
-            if [[ $file == *.cs || $file == *.razor ]]; then
+            if [[ $file == *.py ]]; then
               echo "Reviewing file: $file"
               python .github/scripts/bridgeit_code_review.py $file
             fi

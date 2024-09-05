@@ -1,19 +1,26 @@
-Please review the following C# code changes that have been pushed to the GitHub branch. Focus on identifying potential issues related to code quality, performance, security, and adherence to best practices. Provide suggestions for improvement where necessary, and highlight any areas that might benefit from refactoring. Additionally, please check for any potential bugs or logical errors in the code.
+Code Review Request
+Please review the following Python code changes pushed to the GitHub branch. Focus on identifying potential issues related to code quality, performance, security, adherence to Python best practices (PEP8), and unit testing code coverage. In addition to pointing out potential bugs or logical errors, provide actionable suggestions for improvement and highlight areas for possible refactoring.
 
 Code Changes:
 {code_content}
 
 Context:
-- **Purpose of the Code**: This code is part of a simple calculator application developed using Blazor WebAssembly. The main goal of this code is to implement the basic arithmetic operations (addition, subtraction, multiplication, division) and ensure the UI correctly reflects the results.
-
-- **Specific Requirements**: The application must perform calculations with precision up to two decimal places and handle edge cases such as division by zero gracefully, displaying appropriate error messages to the user.
-
-- **Performance Considerations**: The code needs to be optimized for performance since the application will be running in a WebAssembly environment. This includes minimizing unnecessary state updates and ensuring that the UI remains responsive during calculations.
-
-- **User Interface Considerations**: The UI should be simple and user-friendly, with clear buttons and input fields. Any suggestions for improving the user experience, especially in terms of input handling and result display, would be appreciated.
-
-- **Security Considerations**: While this is a basic calculator, it's important to ensure that the code is secure, particularly in handling user inputs. Please review the input validation logic to prevent any potential vulnerabilities.
-
-- **Scalability**: Though currently a simple calculator, the code should be modular and scalable to allow for future expansion of features, such as adding more complex mathematical operations or integrating with other parts of the application.
-
-Please include an overview of the code's strengths and weaknesses, as well as actionable recommendations for the team.
+•	Purpose: This code is part of a simple web-based calculator application, designed to implement basic arithmetic operations (addition, subtraction, multiplication, division) while ensuring that the results are accurately returned.
+•	Specific Requirements:
+    o	The application must calculate results with a precision of up to two decimal places.
+    o	It must handle edge cases, such as division by zero, by providing appropriate error messages.
+•	Performance Expectations: The code should be optimized for web performance, minimizing unnecessary calculations and ensuring that the application responds quickly to user inputs.
+•	UI/UX Considerations:
+    o	Review the simplicity and clarity of the user interaction, particularly with input handling and the display of results.
+    o	Offer feedback on how the code supports a smooth user experience from a backend perspective, with regard to performance and input validation.
+•	Security Considerations: Validate the security of input handling to prevent any potential vulnerabilities, such as improper user input validation or security risks like injection attacks.
+•	Scalability: Ensure the code structure is modular and supports future expansion, such as adding more complex operations or integrations.
+Unit Testing & Code Coverage:
+•	Review the existing unit tests to ensure they provide sufficient coverage for the functionality, particularly for edge cases (e.g., division by zero).
+•	Identify any gaps in test coverage and suggest additional tests where needed.
+•	Verify that tests are designed to validate the performance and accuracy of calculations up to two decimal places.
+•	Confirm that the tests cover different scenarios that could impact performance, security, or user experience.
+Request:
+•	Summarize the strengths and weaknesses of the code.
+•	Provide detailed recommendations for improvement, including any identified performance, security, or logic issues, or testing gaps.
+•	Offer suggestions for refactoring, improving code maintainability, and enhancing unit test coverage where applicable
