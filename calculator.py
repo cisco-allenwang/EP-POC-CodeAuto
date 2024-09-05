@@ -13,3 +13,6 @@ class Calculator:
             return num1 / num2
         else:
             return "Error: Division by zero"
+        
+    def power(self, num1, num2):
+        return num1 ** num2
