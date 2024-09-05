@@ -81,6 +81,6 @@ if __name__ == "__main__":
     repo_name = os.getenv("GITHUB_REPOSITORY")
     pr_number = int(os.getenv("PR_NUMBER"))
     token = os.getenv("G_AUTO_TOKEN")
-    prompt_template_path = ".github/scripts/prompt_csharp_template.txt"  # Path to the prompt template file
+    prompt_template_path = ".github/scripts/prompt_python_template.txt"  # Path to the prompt template file
 
     main(file_path, repo_name, pr_number, token, prompt_template_path)

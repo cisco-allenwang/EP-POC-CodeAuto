@@ -1,0 +1,26 @@
+Code Review Request
+Please review the following Python code changes pushed to the GitHub branch. Focus on identifying potential issues related to code quality, performance, security, adherence to Python best practices (PEP8), and unit testing code coverage. In addition to pointing out potential bugs or logical errors, provide actionable suggestions for improvement and highlight areas for possible refactoring.
+
+Code Changes:
+{code_content}
+
+Context:
+•	Purpose: This code is part of a simple web-based calculator application, designed to implement basic arithmetic operations (addition, subtraction, multiplication, division) while ensuring that the results are accurately returned.
+•	Specific Requirements:
+    o	The application must calculate results with a precision of up to two decimal places.
+    o	It must handle edge cases, such as division by zero, by providing appropriate error messages.
+•	Performance Expectations: The code should be optimized for web performance, minimizing unnecessary calculations and ensuring that the application responds quickly to user inputs.
+•	UI/UX Considerations:
+    o	Review the simplicity and clarity of the user interaction, particularly with input handling and the display of results.
+    o	Offer feedback on how the code supports a smooth user experience from a backend perspective, with regard to performance and input validation.
+•	Security Considerations: Validate the security of input handling to prevent any potential vulnerabilities, such as improper user input validation or security risks like injection attacks.
+•	Scalability: Ensure the code structure is modular and supports future expansion, such as adding more complex operations or integrations.
+Unit Testing & Code Coverage:
+•	Review the existing unit tests to ensure they provide sufficient coverage for the functionality, particularly for edge cases (e.g., division by zero).
+•	Identify any gaps in test coverage and suggest additional tests where needed.
+•	Verify that tests are designed to validate the performance and accuracy of calculations up to two decimal places.
+•	Confirm that the tests cover different scenarios that could impact performance, security, or user experience.
+Request:
+•	Summarize the strengths and weaknesses of the code.
+•	Provide detailed recommendations for improvement, including any identified performance, security, or logic issues, or testing gaps.
+•	Offer suggestions for refactoring, improving code maintainability, and enhancing unit test coverage where applicable
