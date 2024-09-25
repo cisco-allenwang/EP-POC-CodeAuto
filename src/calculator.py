@@ -14,17 +14,6 @@ class Calculator:
         else:
             return "Error: Division by zero"
         
-
-    #add a power function to the calculation
-    def power(self, base, exponent):
-        return base ** exponent
-    #subtract a square function from the calculation
-    #add a cube function to the calculation
-    #add a cube root function to the calculation
-    
-    
-    
-        
     def square(self, num):
         return num * num
     
