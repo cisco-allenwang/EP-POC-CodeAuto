@@ -3,6 +3,9 @@ pipeline {
     tools {
         sonarQube 'SonarScanner' // This should match the name you provided in the Global Tool Configuration
     }
+    stage('SCM') {
+        checkout scm
+    }
     stages {
         stage('SonarQube analysis') {
             steps {
@@ -15,4 +18,6 @@ pipeline {
             }
         }
     }
+
+    
 }
