@@ -14,12 +14,10 @@ class Calculator:
         else:
             return "Error: Division by zero"
         
-    #add a square function to the calculation
-    def modulo(self, num1, num2):
-        if num2 != 0:
-            return num1 % num2
-        else:
-            return "Error: Division by zero"
+
+    #add a power function to the calculation
+    def power(self, base, exponent):
+        return base ** exponent
     #subtract a square function from the calculation
     #add a cube function to the calculation
     #add a cube root function to the calculation
